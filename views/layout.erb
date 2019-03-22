@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>File CMS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/cms.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="/javascripts/cms.js"></script>
+  </head>
+  <body>
+    <% if session[:message] %>
+      <div class="flash error">
+        <p><%= session.delete(:message) %></p>
+      </div>
+    <% end %>
+    <main>
+      <section id="left_column">
+        <header>
+          <a href="#" data-type="new">New Document</a>
+          <h1>Select a document:</h1>
+        </header>
+        <%== yield %>
+      </section>
+      <section id="file_view" class="hidden">
+        <header>
+          <h2></h2>
+          <ul id="file_options">
+            <li><a data-type="close" href="#">Close</a></li>
+            <li><a data-type="edit" href="#">Edit</a></li>
+            <li><a data-type="delete" href="#">Delete</a></li>
+          </ul>
+        </header>
+      </section>
+    </main>
+    
+    <div id="overlay" class="hidden">
+      <div id="message">
+        <h3></h3>
+        <div id="buttons">
+          <button id="true">Continue</button>
+          <button id="false">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/x-handlebars" id="edit">
+      <form id="edit_doc" action="/{{name}}/edit" method="post">
+        <textarea cols="83" rows="55">{{body}}</textarea>
+        <input data-type="save" type="submit" value="Save Changes">
+      </form>
+    </script>
+    
+    <script type="text/x-handlebars" id="new">
+      <header>
+        <h2>New Document</h2>
+      </header>
+      <form id="new_doc" action="/create" method="post">    
+        <fieldset>
+          <label for="filename">File Name:</label>
+          <input name="filename" type="text" autocomplete="off" placeholder="file.txt or file.md">
+        </fieldset>
+        <textarea cols="83" rows="55"></textarea>
+        <input data-type="create" type="submit" value="Create">
+      </form>
+    </script>
+  </body>
+</html>

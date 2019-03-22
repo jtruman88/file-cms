@@ -1,0 +1,7 @@
+<nav>
+  <ul>
+    <% @files.sort.each do |file| %>
+      <li><a data-type="view" target="_blank" href="/<%= file %>"><%= file %></a></li>
+    <% end %>
+  </ul>
+</nav>

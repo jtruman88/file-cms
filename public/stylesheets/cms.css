@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css?family=Sarabun');
+
+body {
+  font-family: 'Sarabun', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+main {
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+input[type="submit"] {
+  background: #35aa93;
+  color: #30302F;
+  cursor: pointer;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px auto 0 auto;
+  padding: 5px 10px;
+  width: 120px;
+}
+
+/* ---------------------------------- Left Column --------------------------- */
+
+section#left_column {
+  background: #30302F;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100vh;
+  width: 25%;
+  min-width: 275px;
+  padding: 10px 20px;
+  vertical-align: top;
+}
+
+#left_column h1 {
+  color: #C2C1BE;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+#left_column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#left_column li {
+  margin: 0;
+  padding: 0;
+}
+
+#left_column a {
+  color: #C2C1BE;
+  text-decoration: none;
+}
+
+#left_column li a {
+  background: #4F4F4D;
+  display: block;
+  margin: 5px 0;
+  padding: 10px;
+}
+
+#left_column li a.active {
+  background: #3B3B39;
+  color: #40CFB3;
+  font-weight: bold;
+  text-align: right;
+}
+
+#left_column li a:hover {
+  background: #70706E;
+  color: #35aa93;
+}
+
+#left_column li a.active:hover {
+  background: #3B3B39;
+  color: #40CFB3;
+  font-weight: bold;
+  text-align: right;
+}
+
+#left_column li a.active:after {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 0 7px;
+  vertical-align: -5px;
+  content: "";
+  background: transparent url("https://image.flaticon.com/icons/svg/137/137517.svg") 0 0 no-repeat;
+}
+
+#left_column a[data-type="new"] {
+  color: #35aa93;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#left_column a[data-type="new"]:hover {
+  color: #40CFB3;
+}
+
+#left_column a[data-type="new"]:before {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin: 0 7px 0 0;
+  vertical-align: -6px;
+  content: "";
+  background: transparent url("https://image.flaticon.com/icons/svg/179/179402.svg") 0 0 no-repeat;
+  transition: transform 200ms linear;
+}
+
+#left_column a[data-type="new"]:hover:before {
+  transform: rotate(90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); 
+}
+
+/* ---------------------------------- File View --------------------------- */
+
+section#file_view,
+div {
+  box-sizing: border-box;
+  display: inline-block;
+  margin-left: -5px;
+  vertical-align: top;
+  width: 75%;
+}
+
+section#file_view header,
+div header {
+  background: #474746;
+  height: 50px;
+  padding-top: 15px;
+}
+
+section#file_view.hidden {
+  display: none;
+}
+
+#file_view h2,
+div h2 {
+  color: #35aa93;
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+
+#file_view h2,
+#file_options {
+  display: inline-block;
+}
+
+ul#file_options {
+  list-style: none;
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+
+#file_options li {
+  display: inline-block;
+}
+
+#file_options li a {
+  background: #70706E;
+  color: #D9D8D4;
+  display: block;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  width: 50px;
+}
+
+#file_options li a:hover {
+  color: #35aa93;
+}
+
+textarea {
+  display: block;
+  font-size: 11.2px;
+  margin: 0 auto;
+  resize: none;
+}
+
+textarea:focus {
+  outline-color: #35aa93;
+}
+
+input {
+  display: block;
+}
+
+#file_view pre {
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 1000px;
+}
+
+#file_view article {
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 1000px;
+}
+
+/* ---------------------------------- New File --------------------------- */
+
+form#new_doc {
+  padding: 0 20px;
+}
+
+fieldset {
+  border: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+  text-align: center;
+}
+
+fieldset label {
+  color: #30302F;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+fieldset input[type="text"] {
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 3px;
+}
+
+fieldset input[type="text"]:focus {
+  outline-color: #35aa93;
+}
+
+/* ---------------------------------- Edit File --------------------------- */
+
+form#edit_doc {
+  margin-top: 30px;
+}
+
+/* ---------------------------------- Confirm Message --------------------------- */
+
+#overlay {
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+#message {
+  background: #fff;
+  border-radius: 6px;
+  margin: 0 0 0 -150px;
+  width: 300px;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+}
+
+#message h3 {
+  font-size: 16px;
+  text-align: center;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#message button {
+  background: #70706E;
+  color: #D9D8D4;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin:  0 10px 10px 10px;
+  padding: 6px 10px;
+  width: 80px;
+}
+
+#message button:hover {
+  color: #35aa93;
+}
+
+#message button:focus {
+  outline: none;
+}
+
+#message button:active {
+  background: blue;
+}
